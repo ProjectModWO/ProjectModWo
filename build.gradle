@@ -18,7 +18,14 @@ apply plugin: 'idea'
 jar {
     baseName = 'Projekt_Modwo2017'
     version =  '0.1.0'
+    manifest {
+        attributes("Implementation-Title": project.name,
+                   "Implementation-Version": version,
+                   "Main-Class": "main.java.game.core.Game")
+    }
 }
 
 
 mainClassName = 'main.java.game.core.Game'
+
+
