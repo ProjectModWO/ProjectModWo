@@ -21,11 +21,11 @@ jar {
     manifest {
         attributes("Implementation-Title": project.name,
                    "Implementation-Version": version,
-                   "Main-Class": "main.java.game.core.Game")
+                   "Main-Class": "game.core.Game")
     }
 }
 
 
-mainClassName = 'main.java.game.core.Game'
+mainClassName = 'game.core.Game'
 
 
