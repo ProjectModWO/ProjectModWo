@@ -15,6 +15,6 @@ public class GameFrame extends JFrame {
     public GameFrame() throws HeadlessException {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(300,500);
+        setSize(300, 500);
     }
 }

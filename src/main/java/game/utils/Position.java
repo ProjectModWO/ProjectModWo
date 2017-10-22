@@ -1,5 +1,8 @@
 package game.utils;
 
+import lombok.Getter;
+
+@Getter
 public class Position {
 	
 	private int x;

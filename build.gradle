@@ -28,4 +28,11 @@ jar {
 
 mainClassName = 'game.core.Game'
 
+repositories {
+    mavenCentral()
+}
 
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+}
