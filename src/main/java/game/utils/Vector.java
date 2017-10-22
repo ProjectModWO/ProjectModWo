@@ -2,7 +2,7 @@ package game.utils;
 
 public class Vector {
 
-    private double x1;
+	private double x1;
     private double x2;
 
     public enum Axis {
@@ -33,7 +33,7 @@ public class Vector {
 
     @Override
     public String toString() {
-        return "[ " + x1 + " | " + x2 + " ]";
+        return "[ " + x1 + " | " + x2 +  " ]";
     }
 
     @Override
@@ -54,6 +54,7 @@ public class Vector {
     public double getX2() {
         return x2;
     }
+
 
 
     public double getAngle(Vector another) {

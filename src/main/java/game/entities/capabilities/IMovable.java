@@ -1,6 +1,6 @@
 package game.entities.capabilities;
 
-import game.utils.Position;
+import game.physics.Position;
 import game.utils.Vector;
 
 public interface IMovable {
@@ -32,5 +32,12 @@ public interface IMovable {
      * @param position the target position
      */
     void move(Position position);
+
+    /**
+     * Commands the movable to move with a specified accelleration
+     * @param accelleration the accelleration the object should move with
+     */
+    void move(Vector accelleration);
+
 
 }

@@ -1,9 +1,9 @@
 package game.entities;
 
-import game.utils.Position;
+import game.physics.Position;
 
 public abstract class Entity {
 
-    public Position getPosition;
+    public abstract Position getPosition();
 
 }
