@@ -1,7 +1,7 @@
-package main.java.game.core;
+package game.core;
 
 
-import main.java.game.visuals.GameFrame;
+import game.visuals.GameFrame;
 
 public class Game {
 	
