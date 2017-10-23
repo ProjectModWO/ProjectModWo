@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'Modwo 2017'
+rootProject.name = 'Modwo_2017'
