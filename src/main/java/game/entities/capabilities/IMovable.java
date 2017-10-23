@@ -1,6 +1,5 @@
 package game.entities.capabilities;
 
-import game.physics.Position;
 import game.utils.Vector;
 
 public interface IMovable {
@@ -27,17 +26,17 @@ public interface IMovable {
     Vector getAcceleration();
 
     /**
-     * Commands the movable to move to a specified location
-     *
-     * @param position the target position
+     * Commands the movable to move with a specified impulse
+     * @param impulse the impulse the object is given
      */
-    void move(Position position);
+    void move(Vector impulse);
 
     /**
-     * Commands the movable to move with a specified accelleration
-     * @param accelleration the accelleration the object should move with
+     * Commands the object to move with a given force
+     * @param force the force that is uded on the modpack
+     * @param timeInMillis the time the force is occuring
      */
-    void move(Vector accelleration);
+    void move(Vector force, double timeInMillis);
 
 
 }
