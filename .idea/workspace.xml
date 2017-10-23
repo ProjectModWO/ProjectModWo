@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe56b7c4-ff43-45e6-a6b9-dacb1cee7697" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/game/entities/capabilities/ICanMove.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Modwo_2017.iml" afterPath="$PROJECT_DIR$/.idea/modules/Modwo_2017.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Modwo_2017_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/Modwo_2017_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/Modwo_2017_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/Modwo_2017_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/game/entities/capabilities/IMovable.java" afterPath="$PROJECT_DIR$/src/main/java/game/entities/capabilities/IMovable.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -69,8 +64,8 @@
       <file leaf-file-name="IMovable.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/entities/capabilities/IMovable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="425">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -993,7 +988,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508678736748</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Updated IMovable">
+      <created>1508768124897</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508768124897</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1069,7 +1071,8 @@
     <MESSAGE value="Added lombok" />
     <MESSAGE value="Added javadoc" />
     <MESSAGE value="Redid iMovable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redid iMovable" />
+    <MESSAGE value="Updated IMovable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated IMovable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1276,10 +1279,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/entities/capabilities/IMovable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="425">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding />
         </state>
       </provider>
