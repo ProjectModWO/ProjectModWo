@@ -33,10 +33,11 @@ public interface IMovable {
 
     /**
      * Commands the object to move with a given force
-     * @param force the force that is uded on the modpack
+     * @param force the force that is used on the modpack
      * @param timeInMillis the time the force is occuring
      */
     void move(Vector force, double timeInMillis);
+    
 
 
 }
