@@ -1,42 +1,23 @@
 package game.entities;
 
-import game.entities.capabilities.IMovable;
-import game.entities.capabilities.ITickable;
-import game.math.Position;
-import game.math.Vector;
+import game.entities.components.PhysicsComponent;
+import game.entities.components.TransformComponent;
+import lombok.Getter;
+import lombok.Setter;
 
-public abstract class Entity implements IMovable, ITickable{
+@Getter
+@Setter
+public abstract class Entity {
 
-    public abstract Position getPosition();
-    public double weight;
-    public Vector speed;
+    private TransformComponent transform;
     
-	@Override
-	public double getWeight() {
-		return weight;
-	}
-
-	@Override
-	public Vector getSpeed() {
-		return speed;
-	}
-
-	@Override
-	public Vector getAcceleration() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void move(Vector impulse) {
-		// TODO Auto-generated method stub
+    private PhysicsComponent physics;
+    
+    public Entity(TransformComponent transform, PhysicsComponent physics) {
+    	
+		this.transform = transform;
 		
-	}
-
-	@Override
-	public void move(Vector force, double timeInMillis) {
-		// TODO Auto-generated method stub
-		
-	}
-
+		this.physics = physics;
+    }
+    
 }

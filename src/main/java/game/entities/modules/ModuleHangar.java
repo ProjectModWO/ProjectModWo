@@ -1,37 +1,14 @@
 package game.entities.modules;
 
-import game.math.Position;
-import game.math.Vector;
+import game.entities.capabilities.modules.IModule;
+import game.entities.components.PhysicsComponent;
+import game.entities.components.TransformComponent;
 
 public class ModuleHangar extends ModuleBase {
 
-	public ModuleHangar(IModule parent, Position pos, double weight, double powerConsumption) {
-		super(parent, pos, weight, powerConsumption);
+	public ModuleHangar(IModule parent, TransformComponent transform, PhysicsComponent physics, double weight, double powerConsumption) {
+		super(parent, transform, physics, weight, powerConsumption);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public Vector getSpeed() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Vector getAcceleration() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void move(Vector impulse) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void move(Vector force, double timeInMillis) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
