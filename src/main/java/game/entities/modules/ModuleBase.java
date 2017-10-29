@@ -38,7 +38,6 @@ public abstract class ModuleBase extends Entity implements IModule {
 		for (IModule module : connectedModules) {
 			energy += module.getTotalEnergyConsumption();
 		}
-		
 		return energy;
 	}
 	
@@ -52,12 +51,6 @@ public abstract class ModuleBase extends Entity implements IModule {
 		parent.applyForce(force, pos);
 	}
 	
-	/*
-	@Override
-	public void onUpdate() {
-		
-	}
-	*/
 	@Override
 	public Vector centerOfGravity() {
 		double X = getTransform().getPosition().getX1() * getPhysics().getWeight();
@@ -82,8 +75,9 @@ public abstract class ModuleBase extends Entity implements IModule {
 		return toReturn;
 	}
 	
+	public void onModuleChange() {
+		
+		parent.onModuleChange();
+	}
 	
-	
-	
-
 }

@@ -11,26 +11,18 @@ public class ModuleCore extends ModuleBase{
 	
 	private Vector relativeCenterOfGravity;
 	
-	
 	public ModuleCore(TransformComponent transform, PhysicsComponent physics) {
 		super(null, transform, physics, WEIGHT, BASE_POWER_CONSUMPTION);
 	}
 	
 	@Override
 	public void applyForce(Vector force, Vector pos) {
-		//TODO calculate movement/rotation/...
+		
 	}
 	
 	@Override 
 	public void onModuleChange(){
 		relativeCenterOfGravity = centerOfGravity().subtract(getTransform().getPosition());
 	}
-
-	@Override
-	public void onTick() {
-		// TODO Auto-generated method stub
-		
-	}
 	
-
 }

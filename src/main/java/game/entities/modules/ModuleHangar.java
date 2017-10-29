@@ -11,16 +11,4 @@ public class ModuleHangar extends ModuleBase {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void onModuleChange() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTick() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

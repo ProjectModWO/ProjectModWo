@@ -1,6 +1,5 @@
 package game.entities.components;
 
-import game.math.Polygon;
 import game.math.Vector;
 import game.physics.Hitbox;
 import lombok.Getter;

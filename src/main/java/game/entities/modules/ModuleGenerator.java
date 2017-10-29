@@ -17,10 +17,4 @@ public class ModuleGenerator extends ModuleBase {
 		
 	}
 
-	@Override
-	public void onTick() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

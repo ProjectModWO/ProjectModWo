@@ -1,6 +1,5 @@
 package game.entities;
 
-import game.entities.capabilities.ITickable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
 import lombok.Getter;
@@ -8,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class Entity implements ITickable {
+public abstract class Entity {
 
     private TransformComponent transform;
     
@@ -20,4 +19,5 @@ public abstract class Entity implements ITickable {
 		
 		this.physics = physics;
     }
+    
 }
