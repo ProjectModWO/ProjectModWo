@@ -1,5 +1,11 @@
 package game.math;
 
+/*
+ * 
+ * 	Representation of Vectors and Points
+ *
+ */
+
 public class Vector {
 
 	private double x1;

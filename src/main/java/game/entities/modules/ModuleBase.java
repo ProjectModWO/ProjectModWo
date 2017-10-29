@@ -3,23 +3,22 @@ package game.entities.modules;
 import java.util.LinkedList;
 import java.util.List;
 
-import game.math.Position;
+import game.entities.Entity;
+import game.entities.capabilities.modules.IModule;
+import game.entities.components.PhysicsComponent;
+import game.entities.components.TransformComponent;
 import game.math.Vector;
 
-public abstract class ModuleBase implements IModule {
+public abstract class ModuleBase extends Entity implements IModule {
 
 
 	private List<IModule> connectedModules = new LinkedList<>();
 	private IModule parent;
 	private double powerConsumption;
-	private Position pos;
-	private double weight;
-	private double speed = 0.0D;
 	
-	public ModuleBase(IModule parent, Position pos, double weight, double powerConsumption) {
+	public ModuleBase(IModule parent, TransformComponent transform, PhysicsComponent physics, double weight, double powerConsumption) {
+		super(transform, physics);
 		this.parent = parent;
-		this.pos = pos;
-		this.weight = weight;
 		this.powerConsumption = powerConsumption;
 	}
 	
@@ -44,17 +43,12 @@ public abstract class ModuleBase implements IModule {
 	}
 	
 	@Override
-	public double getWeight() {
-		return weight;
-	}
-	
-	@Override
 	public void applyForce(Vector force) {
-		parent.applyForce(force, this.pos);
+		parent.applyForce(force, getTransform().getPosition());
 	}
 	
 	@Override
-	public void applyForce(Vector force, Position pos) {
+	public void applyForce(Vector force, Vector pos) {
 		parent.applyForce(force, pos);
 	}
 	
@@ -65,24 +59,23 @@ public abstract class ModuleBase implements IModule {
 	}
 	*/
 	@Override
-	public Position centerOfGravity() {
-		
-		double X = pos.getX() * weight;
-		double Y = pos.getY() * weight;
+	public Vector centerOfGravity() {
+		double X = getTransform().getPosition().getX1() * getPhysics().getWeight();
+		double Y = getTransform().getPosition().getX2() * getPhysics().getWeight();
 		
 		for(IModule module : connectedModules) {
-			Position relPos = module.centerOfGravity();
+			Vector relPos = module.centerOfGravity();
 			double branchMass = module.branchMass();
-			X += relPos.getX() * branchMass;
-			Y += relPos.getY() * branchMass;
+			X += relPos.getX1() * branchMass;
+			Y += relPos.getX2() * branchMass;
 		}
 		
-		return new Position(X / branchMass(), Y / branchMass(), 0);
+		return new Vector(X / branchMass(), Y / branchMass());
 	}
 	
 	public double branchMass() {
 		
-		double toReturn = weight;
+		double toReturn = getPhysics().getWeight();
 		for(IModule module : connectedModules) {
 			toReturn += module.branchMass();
 		}
