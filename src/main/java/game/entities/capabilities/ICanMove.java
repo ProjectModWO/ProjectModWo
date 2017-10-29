@@ -1,6 +1,6 @@
 package game.entities.capabilities;
 
-import game.physics.Position;
+import game.math.Position;
 
 public interface ICanMove extends IMovable {
 

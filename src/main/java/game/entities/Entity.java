@@ -1,10 +1,11 @@
 package game.entities;
 
 import game.entities.capabilities.IMovable;
-import game.physics.Position;
-import game.utils.Vector;
+import game.entities.capabilities.ITickable;
+import game.math.Position;
+import game.math.Vector;
 
-public abstract class Entity implements IMovable{
+public abstract class Entity implements IMovable, ITickable{
 
     public abstract Position getPosition();
     public double weight;

@@ -1,6 +1,6 @@
 package game.entities.capabilities;
 
-import game.utils.Vector;
+import game.math.Vector;
 
 public interface IMovable {
 

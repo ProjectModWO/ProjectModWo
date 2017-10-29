@@ -2,7 +2,7 @@ package game.entities.capabilities;
 
 import java.awt.image.BufferedImage;
 
-import game.physics.Position;
+import game.math.Position;
 
 public interface IRenderable {
 	

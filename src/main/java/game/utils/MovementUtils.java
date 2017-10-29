@@ -1,5 +1,7 @@
 package game.utils;
 
+import game.math.Vector;
+
 public class MovementUtils {
 
     /**
