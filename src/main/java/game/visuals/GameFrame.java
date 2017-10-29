@@ -7,10 +7,17 @@ public class GameFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public GameFrame() throws HeadlessException {
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1000, 500);
-    }
+	private Toolkit tk = getToolkit();
+	
+	public GameFrame() {
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setBounds(0, 0, tk.getScreenSize().width, tk.getScreenSize().height);
+		
+		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setUndecorated(true);
+		setVisible(true);
+	}
 
 }
