@@ -11,7 +11,6 @@ import game.math.Vector;
 
 public abstract class ModuleBase extends Entity implements IModule {
 
-
 	private List<IModule> connectedModules = new LinkedList<>();
 	private IModule parent;
 	private double powerConsumption;
