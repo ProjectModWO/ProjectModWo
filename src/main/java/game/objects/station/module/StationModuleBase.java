@@ -13,6 +13,7 @@ public abstract class StationModuleBase implements IStationModule {
 	private Position pos;
 	private double weight;
 	private IStationModule parent;
+	private double speed = 0.0D;
 
 	
 	
