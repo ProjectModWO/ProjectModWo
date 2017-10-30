@@ -21,4 +21,8 @@ public interface IModule extends IUseEnergy {
 	
 	public double branchMass();
 	
+	public void addConnectedModule(IModule toAdd);
+	
+	public void removeConnectedModule(IModule toRemove);
+	
 }

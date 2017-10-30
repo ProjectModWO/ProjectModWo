@@ -25,4 +25,9 @@ public class ModuleCore extends ModuleBase{
 		relativeCenterOfGravity = centerOfGravity().subtract(getTransform().getPosition());
 	}
 	
+	@Override
+	public void onDestroy() {
+		//TODO Handling
+		System.err.println("YOU ARE DEAD");
+	}
 }

@@ -19,6 +19,7 @@ public abstract class ModuleBase extends Entity implements IModule {
 		super(transform, physics);
 		this.parent = parent;
 		this.powerConsumption = powerConsumption;
+		if(parent != null) parent.addConnectedModule(this);
 	}
 	
 	@Override
@@ -77,6 +78,22 @@ public abstract class ModuleBase extends Entity implements IModule {
 	public void onModuleChange() {
 		
 		parent.onModuleChange();
+	}
+	
+	@Override
+	public void addConnectedModule(IModule toAdd) {
+		connectedModules.add(toAdd);
+	}
+	
+	@Override
+	public void removeConnectedModule(IModule toRemove) {
+		connectedModules.remove(toRemove);
+	}
+	
+	@Override
+	public void onDestroy() {
+		parent.removeConnectedModule(this);
+		onModuleChange();
 	}
 	
 }

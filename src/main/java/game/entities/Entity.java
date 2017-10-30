@@ -13,11 +13,21 @@ public abstract class Entity {
     
     private PhysicsComponent physics;
     
+    private double health;
+    
     public Entity(TransformComponent transform, PhysicsComponent physics) {
     	
 		this.transform = transform;
 		
 		this.physics = physics;
     }
+    
+    public void onHit(PhysicsComponent hitter) {
+    	//TODO does this make sense???
+    	health -= (physics.getImpulse() - hitter.getImpulse()).abs();
+    	if(health <= 0D) onDestroy();
+    }
+    
+    public abstract void onDestroy();
     
 }
