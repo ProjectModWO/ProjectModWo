@@ -80,7 +80,7 @@ public class Vector {
         return Math.sqrt(x1 * x1 + x2 * x2);
     }
 
-    public Vector sum(Vector another) {
+    public Vector add(Vector another) {
         return new Vector(x1 + another.x1,
                 x2 + another.x2);
     }
