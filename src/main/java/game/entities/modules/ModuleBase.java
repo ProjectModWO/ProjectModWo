@@ -53,17 +53,15 @@ public class ModuleBase extends Entity implements IModule {
 	
 	@Override
 	public Vector centerOfGravity() {
-		double X = getTransform().getPosition().getX1() * getPhyComp().getWeight();
-		double Y = getTransform().getPosition().getX2() * getPhyComp().getWeight();
+		Vector v = getTransform().getPosition() * getPhyComp().getWeight();
 		
 		for(IModule module : connectedModules) {
 			Vector relPos = module.centerOfGravity();
 			double branchMass = module.branchMass();
-			X += relPos.getX1() * branchMass;
-			Y += relPos.getX2() * branchMass;
+			v = v + (relPos * branchMass);
 		}
 		
-		return new Vector(X / branchMass(), Y / branchMass());
+		return v / branchMass();
 	}
 	
 	public double branchMass() {

@@ -102,4 +102,12 @@ public class Vector {
     public void print() {
         System.out.println(this);
     }
+    
+    
+    /**
+     * Inverts the vector's direction, also called by -vector
+     */
+    public Vector negate() {
+    	return new Vector(-x1, -x2);
+    }
 }
