@@ -1,5 +1,6 @@
 package game.entities;
 
+import game.entities.capabilities.IMovable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class Entity {
+public abstract class Entity implements IMovable{
 
     private TransformComponent transform;
     
@@ -22,12 +23,15 @@ public abstract class Entity {
 		this.physics = physics;
     }
     
-    public void onHit(PhysicsComponent hitter) {
-    	//TODO does this make sense???
-    	health -= (physics.getImpulse() - hitter.getImpulse()).abs();
-    	if(health <= 0D) onDestroy();
+    public void onCrash(IMovable hitter) {
+
+        //Todo calculate impact force from the delta of the kinetic energy
+
+    	if(health <= 0D){
+    	    destroy();
+        }
     }
     
-    public abstract void onDestroy();
+    public abstract void destroy();
     
 }

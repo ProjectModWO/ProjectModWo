@@ -9,7 +9,7 @@ import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
 import game.math.Vector;
 
-public abstract class ModuleBase extends Entity implements IModule {
+public class ModuleBase extends Entity implements IModule {
 
 	private List<IModule> connectedModules = new LinkedList<>();
 	private IModule parent;
@@ -33,10 +33,10 @@ public abstract class ModuleBase extends Entity implements IModule {
 	}
 
 	@Override
-	public double getTotalEnergyConsumption() {
+	public double getEnergyConsumption() {
 		double energy = powerConsumption;
 		for (IModule module : connectedModules) {
-			energy += module.getTotalEnergyConsumption();
+			energy += module.getEnergyConsumption();
 		}
 		return energy;
 	}
@@ -53,8 +53,8 @@ public abstract class ModuleBase extends Entity implements IModule {
 	
 	@Override
 	public Vector centerOfGravity() {
-		double X = getTransform().getPosition().getX1() * getPhysics().getWeight();
-		double Y = getTransform().getPosition().getX2() * getPhysics().getWeight();
+		double X = getTransform().getPosition().getX1() * getPhyComp().getWeight();
+		double Y = getTransform().getPosition().getX2() * getPhyComp().getWeight();
 		
 		for(IModule module : connectedModules) {
 			Vector relPos = module.centerOfGravity();
@@ -68,7 +68,7 @@ public abstract class ModuleBase extends Entity implements IModule {
 	
 	public double branchMass() {
 		
-		double toReturn = getPhysics().getWeight();
+		double toReturn = getPhyComp().getWeight();
 		for(IModule module : connectedModules) {
 			toReturn += module.branchMass();
 		}
@@ -91,9 +91,28 @@ public abstract class ModuleBase extends Entity implements IModule {
 	}
 	
 	@Override
-	public void onDestroy() {
+	public void destroy() {
 		parent.removeConnectedModule(this);
 		onModuleChange();
 	}
-	
+
+	@Override
+	public PhysicsComponent getPhyComp() {
+		return null;
+	}
+
+	@Override
+	public void move(Vector impulse) {
+
+	}
+
+	@Override
+	public void move(Vector force, double timeInMillis) {
+
+	}
+
+	@Override
+	public Vector getImpulse() {
+		return null;
+	}
 }

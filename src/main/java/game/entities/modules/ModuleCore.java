@@ -26,8 +26,10 @@ public class ModuleCore extends ModuleBase{
 	}
 	
 	@Override
-	public void onDestroy() {
+	public void destroy() {
 		//TODO Handling
 		System.err.println("YOU ARE DEAD");
 	}
+
+
 }

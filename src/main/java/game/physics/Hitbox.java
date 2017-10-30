@@ -10,4 +10,10 @@ public class Hitbox extends Polygon {
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean isColliding(Hitbox another){
+
+		//Todo implement collision
+		return false;
+	}
+
 }

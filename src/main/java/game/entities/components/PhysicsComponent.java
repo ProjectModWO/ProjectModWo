@@ -5,31 +5,40 @@ import game.physics.Hitbox;
 import lombok.Getter;
 import lombok.Setter;
 
-/*
- * 
- *	Weight, Speed and Hitbox of an Object
- * 
- */
 
+/**
+ * handle for all physical data for an object
+ */
 @Getter
 @Setter
 public class PhysicsComponent {
-	
-	private double weight;
-	
-	private Vector speed;
-	
+
 	private Hitbox hitbox;
-	
-	public PhysicsComponent(Double weight, Vector speed, Hitbox hitbox) {
-		
-		this.weight = weight;
-		this.speed = speed;
+
+	private Vector speed;
+	private Vector accelleration;
+	private double mass;
+
+	public PhysicsComponent(Hitbox hitbox, Vector speed, Vector accelleration, double mass) {
 		this.hitbox = hitbox;
-	}
-	
-	public Vector getImpulse() {
-		return speed * weight;
+		this.speed = speed;
+		this.accelleration = accelleration;
+		this.mass = mass;
 	}
 
+	public double getWeight() {
+		return mass;
+	}
+
+	public Vector getSpeed() {
+		return speed;
+	}
+
+	public Vector getAcceleration() {
+		return accelleration;
+	}
+
+	public Vector getImpulse() {
+		return speed.multiply(mass);
+	}
 }

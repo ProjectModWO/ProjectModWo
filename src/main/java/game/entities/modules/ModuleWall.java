@@ -3,8 +3,9 @@ package game.entities.modules;
 import game.entities.capabilities.modules.IModule;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
+import game.math.Vector;
 
-public class ModuleWall extends ModuleBase{
+public class ModuleWall extends ModuleBase {
 
 	public ModuleWall(IModule parent, TransformComponent transform, PhysicsComponent physics, double weight, double powerConsumption) {
 		super(parent, transform, physics, weight, powerConsumption);
