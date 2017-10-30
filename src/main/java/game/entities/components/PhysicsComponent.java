@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 public class PhysicsComponent {
 	
-	private Double weight;
+	private double weight;
 	
 	private Vector speed;
 	
@@ -26,6 +26,10 @@ public class PhysicsComponent {
 		this.weight = weight;
 		this.speed = speed;
 		this.hitbox = hitbox;
+	}
+	
+	public Vector getImpulse() {
+		return speed * weight;
 	}
 
 }
