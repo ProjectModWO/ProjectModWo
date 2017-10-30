@@ -30,9 +30,11 @@ mainClassName = 'game.core.Game'
 
 repositories {
     mavenCentral()
+    maven { url 'http://amelentev.github.io/mvnrepo/' }
 }
 
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.18'
+    compileOnly 'java-oo:javac8-oo-plugin:+'
 }
