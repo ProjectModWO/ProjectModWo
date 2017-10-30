@@ -15,6 +15,7 @@ public class ModuleBase extends Entity implements IModule {
 	private IModule parent;
 	private double powerConsumption;
 	
+	
 	public ModuleBase(IModule parent, TransformComponent transform, PhysicsComponent physics, double weight, double powerConsumption) {
 		super(transform, physics);
 		this.parent = parent;
@@ -74,7 +75,6 @@ public class ModuleBase extends Entity implements IModule {
 	}
 	
 	public void onModuleChange() {
-		
 		parent.onModuleChange();
 	}
 	
@@ -107,6 +107,6 @@ public class ModuleBase extends Entity implements IModule {
 
 	@Override
 	public Vector getImpulse() {
-		return null;
+		return getPhyComp().getImpulse();
 	}
 }

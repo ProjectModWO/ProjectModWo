@@ -4,7 +4,6 @@ import game.entities.capabilities.IMovable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
 import lombok.Getter;
-import lombok.Setter;
 
 public abstract class Entity implements IMovable{
 
