@@ -6,14 +6,14 @@ import game.entities.components.TransformComponent;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public abstract class Entity implements IMovable{
 
+    @Getter
     private TransformComponent transform;
     
     private PhysicsComponent physics;
-    
+
+    @Getter
     private double health;
     
     public Entity(TransformComponent transform, PhysicsComponent physics) {
@@ -31,7 +31,12 @@ public abstract class Entity implements IMovable{
     	    destroy();
         }
     }
-    
+
+    @Override
+    public PhysicsComponent getPhyComp() {
+        return physics;
+    }
+
     public abstract void destroy();
     
 }

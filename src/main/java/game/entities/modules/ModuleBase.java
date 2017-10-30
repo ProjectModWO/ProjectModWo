@@ -94,10 +94,6 @@ public class ModuleBase extends Entity implements IModule {
 		onModuleChange();
 	}
 
-	@Override
-	public PhysicsComponent getPhyComp() {
-		return null;
-	}
 
 	@Override
 	public void move(Vector impulse) {
