@@ -5,13 +5,15 @@ import game.physics.Hitbox;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 
 /**
  * handle for all physical data for an object
  */
 @Getter
 @Setter
-public class PhysicsComponent {
+public class PhysicsComponent implements Serializable{
 
 	private Hitbox hitbox;
 

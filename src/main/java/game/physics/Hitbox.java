@@ -3,7 +3,9 @@ package game.physics;
 import game.math.Polygon;
 import game.math.Vector;
 
-public class Hitbox extends Polygon {
+import java.io.Serializable;
+
+public class Hitbox extends Polygon implements Serializable{
 
 	public Hitbox(Vector[] points) {
 		super(points);
