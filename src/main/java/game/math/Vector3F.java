@@ -1,6 +1,8 @@
 package game.math;
 
-public class Vector3F {
+import java.io.Serializable;
+
+public class Vector3F implements Serializable{
 
     private double x1;
     private double x2;

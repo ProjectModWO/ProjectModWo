@@ -2,12 +2,13 @@ package game.core.common;
 
 import game.entities.Entity;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class GameRegistry {
+public class GameRegistry implements Serializable{
 
     private volatile Map<Integer, Entity> entityRegistry;
     private int counter;
@@ -35,7 +36,6 @@ public class GameRegistry {
     public void removeEntity(Entity entity){
         int UID = entity.getUID();
         entityRegistry.remove(UID);
-        entityRegistry.hashCode();
     }
 
     public Entity[] getEntityRegistrySnapshot() {

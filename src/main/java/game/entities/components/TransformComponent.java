@@ -4,6 +4,8 @@ import game.math.Vector;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /*
  * 
  *  Position and Rotation of an Object
@@ -12,7 +14,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TransformComponent {
+public class TransformComponent implements Serializable{
 	
 	private Vector position;
 	

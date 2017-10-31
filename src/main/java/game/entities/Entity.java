@@ -5,7 +5,9 @@ import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
 import lombok.Getter;
 
-public abstract class Entity implements IMovable{
+import java.io.Serializable;
+
+public abstract class Entity implements IMovable, Serializable {
 
     @Getter
     private TransformComponent transform;

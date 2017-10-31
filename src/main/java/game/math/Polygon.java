@@ -3,6 +3,8 @@ package game.math;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /*
  * 
  * 	Simple Polygon object
@@ -11,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Polygon {
+public class Polygon implements Serializable{
 
 	private Vector[] points;
 	

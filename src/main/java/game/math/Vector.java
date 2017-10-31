@@ -6,7 +6,9 @@ package game.math;
  *
  */
 
-public class Vector {
+import java.io.Serializable;
+
+public class Vector implements Serializable{
 
 	private double x1;
     private double x2;
