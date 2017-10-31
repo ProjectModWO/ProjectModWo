@@ -11,6 +11,8 @@ public abstract class Entity implements IMovable{
     private TransformComponent transform;
     
     private PhysicsComponent physics;
+    @Getter
+    private int UID = 0;
 
     @Getter
     private double health;
@@ -37,5 +39,16 @@ public abstract class Entity implements IMovable{
     }
 
     public abstract void destroy();
-    
+
+    public void setUID(int UID) {
+        if (UID != 0){
+            throw new RuntimeException(){
+                @Override
+                public String getMessage() {
+                    return "UID already set!";
+                }
+            };
+        }
+        this.UID = UID;
+    }
 }

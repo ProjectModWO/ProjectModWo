@@ -34,7 +34,14 @@ repositories {
 }
 
 
+project.ext.lwjglVersion = "3.0.0a"
+
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.18'
     compileOnly 'java-oo:javac8-oo-plugin:+'
+    compile "org.lwjgl:lwjgl:${lwjglVersion}"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
+
 }

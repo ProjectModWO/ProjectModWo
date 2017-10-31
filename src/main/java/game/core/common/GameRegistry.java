@@ -1,35 +1,44 @@
-package game.core.common;/* 
- * Copyright (C) 2017 Vindalia - All Rights Reserved 
- * 
- * Unauthorized copying of this file, via any medium is strictly prohibited 
- * Proprietary and confidential 
- * 
- * Written by Vindalia <development@vindalia.net>, 2017 
- */
+package game.core.common;
 
 import game.entities.Entity;
 
+import java.util.Map;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class GameRegistry {
 
-    private volatile Queue<Entity> entityRegistry;
+    private volatile Map<Integer, Entity> entityRegistry;
+    private int counter;
 
     public GameRegistry() {
 
-        entityRegistry = new ConcurrentLinkedQueue<>();
+        entityRegistry = new ConcurrentHashMap<>();
     }
 
     public void registerEntity(Entity entity){
-        entityRegistry.add(entity);
+        int i = getCounter();
+        entity.setUID(i);
+
+        entityRegistry.put(i,entity);
+    }
+
+    private int getCounter(){
+        while(entityRegistry.containsKey(counter) || counter == 0){
+            counter++;
+        }
+        return counter++;
+
     }
 
     public void removeEntity(Entity entity){
-        entityRegistry.remove(entity);
+        int UID = entity.getUID();
+        entityRegistry.remove(UID);
+        entityRegistry.hashCode();
     }
 
     public Entity[] getEntityRegistrySnapshot() {
-        return (Entity[]) entityRegistry.toArray();
+        return (Entity[]) entityRegistry.values().toArray();
     }
 }

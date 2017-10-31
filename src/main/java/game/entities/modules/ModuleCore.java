@@ -15,7 +15,7 @@ public class ModuleCore extends ModuleBase implements ITickable{
 	private double storedPower;
 	
 	private Vector relativeCenterOfGravity;
-	
+
 	public ModuleCore(TransformComponent transform, PhysicsComponent physics) {
 		super(null, transform, physics, WEIGHT, BASE_POWER_CONSUMPTION);
 		this.storedPower = 50000; //TODO read from configuration file
