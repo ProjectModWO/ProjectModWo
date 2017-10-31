@@ -26,7 +26,7 @@ jar {
 }
 
 
-mainClassName = 'game.core.Game'
+mainClassName = 'game.core.ModWo'
 
 repositories {
     mavenCentral()
