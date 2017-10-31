@@ -1,16 +1,14 @@
 package game.core;
 
 
-import game.visuals.GameFrame;
+import game.visuals.Frame;
 
 public class ModWo {
 
 
     public static void main(String[] args) {
-
-        GameFrame frame = new GameFrame();
-
-        frame.setVisible(true);
+    	
+        Frame frame = new Frame(1920, 1080, "ModWo");
 
     }
 }

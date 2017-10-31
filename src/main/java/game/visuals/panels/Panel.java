@@ -15,9 +15,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GamePanel extends JPanel {
+public class Panel extends JPanel {
 
-    public GamePanel() {
+    public Panel() {
         super(null, true);
     }
 
