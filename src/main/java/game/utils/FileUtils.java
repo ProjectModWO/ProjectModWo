@@ -4,15 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
 
-public class FileUtils {
+/**
+ * 
+ * Holds all File related utility functions
+ * 
+ */
 
-	/**
-	 * 
-	 * Holds all File related utility functions
-	 * 
-	 */
+public class FileUtils {
 	
-	public FileUtils() {
+	private FileUtils() {
 	}
 	
 	/**

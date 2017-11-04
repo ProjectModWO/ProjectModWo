@@ -10,6 +10,11 @@ import javax.imageio.ImageIO;
 
 import static org.lwjgl.opengl.GL11.*;
 
+/**
+ * 
+ * Holds ID, width, height of an OpenGL 2D Texture
+ *
+ */
 public class Texture {
 	
 	private @Getter int  width, height;
