@@ -1,6 +1,6 @@
 package game.utils;
 
-import game.math.Vector;
+import game.math.Vector2f;
 
 public class MovementUtils {
 
@@ -13,7 +13,7 @@ public class MovementUtils {
      * @param massTo    the mass of the hit object
      * @return the vector of the new speed
      */
-    public static Vector impulse(Vector speedFrom, double massFrom, double massTo) {
+    public static Vector2f impulse(Vector2f speedFrom, double massFrom, double massTo) {
 
         return speedFrom.unify().multiply(speedFrom.abs() * massFrom / massTo);
 

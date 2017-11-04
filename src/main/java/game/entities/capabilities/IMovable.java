@@ -9,7 +9,7 @@ package game.entities.capabilities;
  */
 
 import game.entities.components.PhysicsComponent;
-import game.math.Vector;
+import game.math.Vector2f;
 
 public interface IMovable {
 
@@ -23,15 +23,15 @@ public interface IMovable {
      * Commands the movable to move with a specified impulse
      * @param impulse the impulse the object is given
      */
-    void move(Vector impulse);
+    void move(Vector2f impulse);
 
     /**
      * Commands the object to move with a given force
      * @param force the force that is uded on the modpack
      * @param timeInMillis the time the force is occuring
      */
-    void move(Vector force, double timeInMillis);
+    void move(Vector2f force, double timeInMillis);
 
-    Vector getImpulse();
+    Vector2f getImpulse();
 
 }

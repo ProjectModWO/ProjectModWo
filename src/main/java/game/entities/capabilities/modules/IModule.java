@@ -3,7 +3,7 @@ package game.entities.capabilities.modules;
 import java.util.List;
 
 import game.entities.capabilities.IUseEnergy;
-import game.math.Vector;
+import game.math.Vector2f;
 
 public interface IModule extends IUseEnergy {
 	
@@ -11,13 +11,13 @@ public interface IModule extends IUseEnergy {
 	
 	public IModule getParent();
 
-	void applyForce(Vector force, Vector pos);
+	void applyForce(Vector2f force, Vector2f pos);
 	
-	public void applyForce(Vector force);
+	public void applyForce(Vector2f force);
 	
 	public void onModuleChange();
 	
-	public Vector centerOfGravity();
+	public Vector2f centerOfGravity();
 	
 	public double branchMass();
 	
