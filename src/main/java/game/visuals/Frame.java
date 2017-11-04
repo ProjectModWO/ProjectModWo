@@ -54,7 +54,7 @@ public class Frame implements Runnable {
 		
 		
 		while(active) {
-			
+			render();
 		}
 		
 	}
