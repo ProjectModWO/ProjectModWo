@@ -1,5 +1,6 @@
 package game.core.common;
 
+import game.core.capabilities.Registrable;
 import game.entities.Entity;
 
 import java.io.Serializable;
@@ -18,11 +19,15 @@ public class GameRegistry implements Serializable{
         entityRegistry = new ConcurrentHashMap<>();
     }
 
-    public void registerEntity(Entity entity){
+    public void register(Registrable registrable){
         int i = getCounter();
-        entity.setUID(i);
 
-        entityRegistry.put(i,entity);
+        if (registrable instanceof Entity){
+            Entity entity = (Entity) registrable;
+            entity.setUID(i);
+            entityRegistry.put(i,entity);
+        }
+
     }
 
     private int getCounter(){
@@ -33,9 +38,14 @@ public class GameRegistry implements Serializable{
 
     }
 
-    public void removeEntity(Entity entity){
-        int UID = entity.getUID();
-        entityRegistry.remove(UID);
+    public void remove(Registrable registrable){
+
+        if (registrable instanceof Entity){
+            Entity entity = (Entity) registrable;
+            int UID = entity.getUID();
+            entityRegistry.remove(UID);
+        }
+
     }
 
     public Entity[] getEntityRegistrySnapshot() {

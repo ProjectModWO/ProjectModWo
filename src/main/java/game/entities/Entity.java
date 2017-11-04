@@ -1,5 +1,6 @@
 package game.entities;
 
+import game.core.capabilities.Registrable;
 import game.entities.capabilities.IMovable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
@@ -7,13 +8,13 @@ import lombok.Getter;
 
 import java.io.Serializable;
 
-public abstract class Entity implements IMovable, Serializable {
+public abstract class Entity implements IMovable, Serializable, Registrable {
 
     @Getter
     private TransformComponent transform;
     
     private PhysicsComponent physics;
-    @Getter
+
     private int UID = 0;
 
     @Getter
@@ -42,6 +43,7 @@ public abstract class Entity implements IMovable, Serializable {
 
     public abstract void destroy();
 
+    @Override
     public void setUID(int UID) {
         if (UID != 0){
             throw new RuntimeException(){
@@ -52,5 +54,10 @@ public abstract class Entity implements IMovable, Serializable {
             };
         }
         this.UID = UID;
+    }
+
+    @Override
+    public int getUID() {
+        return UID;
     }
 }
