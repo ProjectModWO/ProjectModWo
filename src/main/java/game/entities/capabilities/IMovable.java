@@ -9,7 +9,7 @@ package game.entities.capabilities;
  */
 
 import game.entities.components.PhysicsComponent;
-import game.math.Vector2f;
+import math.Vector2f;
 
 public interface IMovable {
 

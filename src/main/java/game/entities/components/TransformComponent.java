@@ -1,8 +1,8 @@
 package game.entities.components;
 
-import game.math.Vector2f;
 import lombok.Getter;
 import lombok.Setter;
+import math.Vector2f;
 
 import java.io.Serializable;
 

@@ -1,9 +1,7 @@
-package game.visuals.utils;
+package graphics.utils;
 
 import static org.lwjgl.opengl.GL20.*;
-
-import static game.utils.FileUtils.loadFileAsString;
-
+import static utils.FileUtils.loadFileAsString;
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 
 /**

@@ -1,18 +1,22 @@
-package game.visuals;
+package graphics;
 
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
+import graphics.utils.ShaderUtils;
+
 import java.nio.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL30.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class Frame implements Runnable {
-
+	
 	private long window;
 
 	private int width, height;
@@ -38,8 +42,21 @@ public class Frame implements Runnable {
 
 		init();
 
+		//Test code pls delete
+		
+		int vao = glGenVertexArrays();
+		glBindVertexArray(vao);
+		
+		int shader = ShaderUtils.loadAndCreate("shaders/shader.vert", "shaders/shader.frag");
+		
+		glUseProgram(shader);
+		
+		//end of test code
+		
 		while (active) {
+			
 			render();
+			
 			active = !glfwWindowShouldClose(window);
 		}
 
@@ -98,9 +115,6 @@ public class Frame implements Runnable {
 
 		GL.createCapabilities();
 		
-		// Set the clear color
-		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
-		
 		active = true;
 
 	}
@@ -112,12 +126,14 @@ public class Frame implements Runnable {
 	}
 
 	private void render() {
-		
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		
 		glfwSwapBuffers(window);
+		
+		
 		
 		glfwPollEvents();
 	}

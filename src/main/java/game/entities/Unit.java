@@ -13,12 +13,13 @@ import game.entities.capabilities.IRenderable;
 import game.entities.capabilities.ITickable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import game.math.Vector2f;
+import math.Vector2f;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 public class Unit extends Entity implements IRenderable, ITickable, ICanMove{
 
@@ -75,4 +76,10 @@ public class Unit extends Entity implements IRenderable, ITickable, ICanMove{
     public Vector2f getImpulse() {
         return null;
     }
+
+	@Override
+	public void execute(byte ident, Serializable... args) {
+		// TODO Auto-generated method stub
+		
+	}
 }

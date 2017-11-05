@@ -1,4 +1,4 @@
-package game.math;
+package math;
 
 /*
  * 

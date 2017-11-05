@@ -3,7 +3,7 @@ package game.entities.modules;
 import game.entities.capabilities.modules.IModule;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import game.math.Vector2f;
+import math.Vector2f;
 
 public class ModuleHangar extends ModuleBase {
 

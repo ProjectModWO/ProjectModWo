@@ -1,10 +1,11 @@
-package game.visuals;
+package graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
-import game.utils.BufferUtils;
+
 import lombok.Getter;
+import utils.BufferUtils;
 
 import javax.imageio.ImageIO;
 

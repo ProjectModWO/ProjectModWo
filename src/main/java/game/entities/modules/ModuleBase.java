@@ -1,5 +1,6 @@
 package game.entities.modules;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import game.entities.Entity;
 import game.entities.capabilities.modules.IModule;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import game.math.Vector2f;
+import math.Vector2f;
 
 public class ModuleBase extends Entity implements IModule {
 
@@ -108,5 +109,11 @@ public class ModuleBase extends Entity implements IModule {
 	@Override
 	public Vector2f getImpulse() {
 		return getPhyComp().getImpulse();
+	}
+
+	@Override
+	public void execute(byte ident, Serializable... args) {
+		// TODO Auto-generated method stub
+		
 	}
 }

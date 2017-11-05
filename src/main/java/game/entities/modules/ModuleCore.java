@@ -3,7 +3,7 @@ package game.entities.modules;
 import game.entities.capabilities.ITickable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import game.math.Vector2f;
+import math.Vector2f;
 
 public class ModuleCore extends ModuleBase implements ITickable{
 

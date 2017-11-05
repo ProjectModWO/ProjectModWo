@@ -1,7 +1,7 @@
 package game.physics;
 
-import game.math.Polygon;
-import game.math.Vector2f;
+import math.Polygon;
+import math.Vector2f;
 
 import java.io.Serializable;
 

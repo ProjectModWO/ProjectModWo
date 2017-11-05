@@ -3,7 +3,7 @@ package game.entities.capabilities.modules;
 import java.util.List;
 
 import game.entities.capabilities.IUseEnergy;
-import game.math.Vector2f;
+import math.Vector2f;
 
 public interface IModule extends IUseEnergy {
 	

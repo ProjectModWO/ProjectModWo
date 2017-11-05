@@ -1,6 +1,6 @@
 package game.utils;
 
-import game.math.Vector2f;
+import math.Vector2f;
 
 public class MovementUtils {
 
