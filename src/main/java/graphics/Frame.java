@@ -47,9 +47,9 @@ public class Frame implements Runnable {
 		int vao = glGenVertexArrays();
 		glBindVertexArray(vao);
 		
-		int shader = ShaderUtils.loadAndCreate("shaders/shader.vert", "shaders/shader.frag");
+		Shader shader = new Shader("shaders/shader.vert", "shaders/shader.frag");
 		
-		glUseProgram(shader);
+		shader.enable();
 		
 		//end of test code
 		
