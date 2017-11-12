@@ -19,6 +19,9 @@ public class ModWo {
 		while(window.isActive()) {
 			Thread.sleep(10);
 			t.setRotation((float) (t.getRotation() + Math.PI / 360 * 32));
+			if (!window.inputHandler.getInputs().isEmpty()) {
+				window.close();
+			}
 		}
 	}
 

@@ -96,8 +96,6 @@ public class Window implements Runnable {
 		// create InputHandler and link as a callback
 		inputHandler = new InputHandler(this);
 
-		glfwSetKeyCallback(handle, inputHandler);
-
 		active = true;
 
 		while (active) {
@@ -128,7 +126,11 @@ public class Window implements Runnable {
 	public String getTitle() {
 		return title;
 	}
-
+	
+	public void close() {
+		glfwSetWindowShouldClose(handle, true);
+	}
+	
 	public void onKey() {
 
 	}
