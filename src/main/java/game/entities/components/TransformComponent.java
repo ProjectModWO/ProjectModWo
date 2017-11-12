@@ -2,7 +2,7 @@ package game.entities.components;
 
 import lombok.Getter;
 import lombok.Setter;
-import math.Vector2f;
+import math.Vector2d;
 
 import java.io.Serializable;
 
@@ -16,16 +16,16 @@ import java.io.Serializable;
 @Setter
 public class TransformComponent implements Serializable{
 	
-	private Vector2f position;
+	private Vector2d position;
 	
 	private Double rotation;
 	
 	public TransformComponent() {
 		
-		this(new Vector2f(0, 0), 0D);
+		this(new Vector2d(0, 0), 0D);
 	}
 	
-	public TransformComponent(Vector2f position, Double rotation) {
+	public TransformComponent(Vector2d position, Double rotation) {
 		
 		this.position = position;
 		

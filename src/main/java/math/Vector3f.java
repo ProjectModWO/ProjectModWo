@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Vector3f implements Serializable{
 
-    private double x1;
-    private double x2;
-    private double x3;
+    private float x1;
+    private float x2;
+    private float x3;
 
     public enum RoomAxis {
 
@@ -24,14 +24,18 @@ public class Vector3f implements Serializable{
             return v;
         }
     }
-
-    public Vector3f(double[] args) {
+   
+    public Vector3f(Vector2f vec, float x3) {
+    	this(vec.getX1(), vec.getX2(), x3);
+    }
+    
+    public Vector3f(float[] args) {
         x1 = args[0];
         x2 = args[1];
         x3 = args[2];
     }
 
-    public Vector3f(double x1, double x2, double x3) {
+    public Vector3f(float x1, float x2, float x3) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
@@ -53,33 +57,33 @@ public class Vector3f implements Serializable{
         return x1 == another.x1 && x2 == another.x2 && x3 == another.x3;
     }
 
-    public double getX1() {
+    public float getX1() {
         return x1;
     }
 
-    public double getX2() {
+    public float getX2() {
         return x2;
     }
 
-    public double getX3() {
+    public float getX3() {
         return x3;
     }
 
-    public double getAngle(Vector3f another) {
+    public float getAngle(Vector3f another) {
 
-        return Math.acos(skalar(another) / (abs() * another.abs()));
+        return (float) Math.acos(skalar(another) / (abs() * another.abs()));
     }
 
-    public Vector3f multiply(double d) {
+    public Vector3f multiply(float d) {
         return new Vector3f(x1 * d, x2 * d, x3 * d);
     }
 
-    public Vector3f divide(double d) {
+    public Vector3f divide(float d) {
         return new Vector3f(x1 / d, x2 / d, x3 / d);
     }
 
-    public double abs() {
-        return Math.sqrt(x1 * x1 + x2 * x2 + x3 * x3);
+    public float abs() {
+        return (float) Math.sqrt(x1 * x1 + x2 * x2 + x3 * x3);
     }
 
     public Vector3f add(Vector3f another) {
@@ -94,7 +98,7 @@ public class Vector3f implements Serializable{
                 x3 - another.x3);
     }
 
-    public double skalar(Vector3f another) {
+    public float skalar(Vector3f another) {
 
         return x1 * another.x1 + x2 * another.x2 + x3 * another.x3;
     }

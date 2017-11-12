@@ -8,10 +8,13 @@ package math;
 
 import java.io.Serializable;
 
+import lombok.Setter;
+
+@Setter
 public class Vector2f implements Serializable{
 
-	private double x1;
-    private double x2;
+	private float x1;
+    private float x2;
 
     public enum Axis {
 
@@ -29,12 +32,12 @@ public class Vector2f implements Serializable{
         }
     }
 
-    public Vector2f(double[] args) {
+    public Vector2f(float[] args) {
         x1 = args[0];
         x2 = args[1];
     }
 
-    public Vector2f(double x1, double x2) {
+    public Vector2f(float x1, float x2) {
         this.x1 = x1;
         this.x2 = x2;
     }
@@ -55,31 +58,29 @@ public class Vector2f implements Serializable{
         return x1 == another.x1 && x2 == another.x2;
     }
 
-    public double getX1() {
+    public float getX1() {
         return x1;
     }
 
-    public double getX2() {
+    public float getX2() {
         return x2;
     }
 
+    public float getAngle(Vector2f another) {
 
-
-    public double getAngle(Vector2f another) {
-
-        return Math.acos(skalar(another) / (abs() * another.abs()));
+        return (float) Math.acos(skalar(another) / (abs() * another.abs()));
     }
 
-    public Vector2f multiply(double d) {
+    public Vector2f multiply(float d) {
         return new Vector2f(x1 * d, x2 * d);
     }
 
-    public Vector2f divide(double d) {
+    public Vector2f divide(float d) {
         return new Vector2f(x1 / d, x2 / d);
     }
 
-    public double abs() {
-        return Math.sqrt(x1 * x1 + x2 * x2);
+    public float abs() {
+        return (float) Math.sqrt(x1 * x1 + x2 * x2);
     }
 
     public Vector2f add(Vector2f another) {
@@ -92,7 +93,7 @@ public class Vector2f implements Serializable{
                 x2 - another.x2);
     }
 
-    public double skalar(Vector2f another) {
+    public float skalar(Vector2f another) {
 
         return x1 * another.x1 + x2 * another.x2;
     }
