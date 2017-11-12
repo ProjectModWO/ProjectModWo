@@ -18,17 +18,17 @@ public class RenderHandler {
 	private Matrix4f pr_matrix;
 
 	private ArrayList<GraphicObject> gobjects = new ArrayList<GraphicObject>();
-	
+
 	private ConcurrentLinkedQueue<GraphicObjectTemplate> addObjects = new ConcurrentLinkedQueue<GraphicObjectTemplate>();
 
 	private ConcurrentLinkedQueue<Long> remObjects = new ConcurrentLinkedQueue<Long>();
-	
+
 	public RenderHandler(Window window) {
 
 		this.window = window;
 
-		pr_matrix = Matrix4f.orthographic(-window.getWidth() / 200, window.getWidth() / 200, -window.getHeight() / 200,
-				window.getHeight() / 200, -1.0f, 1.0f);
+		pr_matrix = Matrix4f.orthographic(-window.getWidth() / 240, window.getWidth() / 240, -window.getHeight() / 240,
+				window.getHeight() / 240, -1.0f, 1.0f);
 		// activate OpenGL
 		GL.createCapabilities();
 
@@ -51,17 +51,17 @@ public class RenderHandler {
 	}
 
 	public void invalidate() {
-		while(!addObjects.isEmpty()) {
+		while (!addObjects.isEmpty()) {
 			gobjects.add(new GraphicObject(addObjects.poll()));
 		}
-		while(!remObjects.isEmpty()) {
+		while (!remObjects.isEmpty()) {
 			long id = remObjects.poll();
-			for(GraphicObject g : gobjects) {
+			for (GraphicObject g : gobjects) {
 				if (g.getId() == id) {
 					gobjects.remove(g);
 				}
 			}
-			
+
 		}
 		for (GraphicObject g : gobjects) {
 			g.invalidate();

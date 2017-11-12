@@ -79,10 +79,6 @@ public class Window implements Runnable {
 			return;
 		}
 
-		// center window
-		GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-		glfwSetWindowPos(handle, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
-
 		glfwMakeContextCurrent(handle);
 
 		// Enable v-sync

@@ -18,9 +18,20 @@ public class VertexArray {
 	private int vao, vbo, ibo, tbo;
 
 	public VertexArray(float width, float height) {
-		this(new float[] { -width / 2, height / 2, 0.0f, width / 2, height / 2, 0.0f, width / 2, -height / 2, 0.0f,
-				-width / 2, -height / 2, 0.0f }, new byte[] { 0, 1, 2, 2, 3, 0 },
-				new float[] { 0, 1, 0, 0, 1, 0, 1, 1 });
+		this(new float[] { 
+				-width / 2, height / 2, 0.0f,
+				width / 2, height / 2, 0.0f,
+				width / 2, -height / 2, 0.0f,
+				-width / 2, -height / 2, 0.0f
+				}, 
+				new byte[] 
+						{ 0, 1,
+								2, 2,
+								3, 0 },
+				new float[] { 0, 1,
+						0, 0,
+						1, 0,
+						1, 1 });
 
 	}
 

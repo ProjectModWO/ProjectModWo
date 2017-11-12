@@ -49,7 +49,7 @@ public class GraphicObject {
 
 	public void invalidate() {
 		shader.setUniformMat4f("pr_matrix", pr_matrix);
-		shader.setUniformMat4f("tr_matrix", Matrix4f.translate(new Vector3f(transform.getPosition(), 0.0f)));
+		shader.setUniformMat4f("tr_matrix", Matrix4f.translate(new Vector3f(transform.getPosition(), -1.0f)));
 		shader.setUniformMat4f("rt_matrix", Matrix4f.rotate(transform.getRotation()));
 	}	
 	

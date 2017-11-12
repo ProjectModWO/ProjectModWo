@@ -21,6 +21,18 @@ public class InputHandler {
 	@Getter
 	private ConcurrentLinkedQueue<KeyWrapper> inputs = new ConcurrentLinkedQueue<KeyWrapper>();
 
+	public Vector2f getMousePos() {
+		
+		DoubleBuffer x = BufferUtils.createDoubleBuffer(1);
+
+		DoubleBuffer y = BufferUtils.createDoubleBuffer(1);
+
+		glfwGetCursorPos(this.window.getID(), x, y);
+		
+		return new Vector2f((float)x.get(), (float)y.get());
+		
+	}
+	
 	public InputHandler(Window window) {
 
 		this.window = window;
@@ -29,7 +41,7 @@ public class InputHandler {
 		glfwSetMouseButtonCallback(window.getID(), new MouseButtonCallback(window, inputs));
 
 	}
-
+	
 	protected class KeyCallback extends GLFWKeyCallback {
 
 		private Window window;

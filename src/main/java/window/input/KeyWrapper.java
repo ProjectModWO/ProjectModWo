@@ -1,7 +1,9 @@
 package window.input;
 
+import lombok.Getter;
 import math.Vector2f;
 
+@Getter
 public class KeyWrapper {
 
 	private final Key key;
