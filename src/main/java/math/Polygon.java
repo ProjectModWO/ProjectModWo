@@ -15,9 +15,9 @@ import java.io.Serializable;
 @Setter
 public class Polygon implements Serializable{
 
-	private Vector2f[] points;
+	private Vector2d[] points;
 	
-	public Polygon(Vector2f[] points) {
+	public Polygon(Vector2d[] points) {
 		
 		this.points = points;
 	}

@@ -3,7 +3,7 @@ package game.entities.modules;
 import game.entities.capabilities.ITickable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import math.Vector2f;
+import math.Vector2d;
 
 public class ModuleCore extends ModuleBase implements ITickable{
 
@@ -14,7 +14,7 @@ public class ModuleCore extends ModuleBase implements ITickable{
 	private double maxPower;
 	private double storedPower;
 	
-	private Vector2f relativeCenterOfGravity;
+	private Vector2d relativeCenterOfGravity;
 
 	public ModuleCore(TransformComponent transform, PhysicsComponent physics) {
 		super(null, transform, physics, WEIGHT, BASE_POWER_CONSUMPTION);
@@ -24,7 +24,7 @@ public class ModuleCore extends ModuleBase implements ITickable{
 	}
 	
 	@Override
-	public void applyForce(Vector2f force, Vector2f pos) {
+	public void applyForce(Vector2d force, Vector2d pos) {
 		//TODO
 	}
 	

@@ -13,7 +13,7 @@ import game.entities.capabilities.IRenderable;
 import game.entities.capabilities.ITickable;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import math.Vector2f;
+import math.Vector2d;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -63,17 +63,17 @@ public class Unit extends Entity implements IRenderable, ITickable, ICanMove{
     }
 
     @Override
-    public void move(Vector2f impulse) {
+    public void move(Vector2d impulse) {
 
     }
 
     @Override
-    public void move(Vector2f force, double timeInMillis) {
+    public void move(Vector2d force, double timeInMillis) {
 
     }
 
     @Override
-    public Vector2f getImpulse() {
+    public Vector2d getImpulse() {
         return null;
     }
 

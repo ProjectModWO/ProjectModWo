@@ -3,7 +3,7 @@ package game.entities.components;
 import game.physics.Hitbox;
 import lombok.Getter;
 import lombok.Setter;
-import math.Vector2f;
+import math.Vector2d;
 
 import java.io.Serializable;
 
@@ -17,11 +17,11 @@ public class PhysicsComponent implements Serializable{
 
 	private Hitbox hitbox;
 
-	private Vector2f speed;
-	private Vector2f accelleration;
+	private Vector2d speed;
+	private Vector2d accelleration;
 	private double mass;
 
-	public PhysicsComponent(Hitbox hitbox, Vector2f speed, Vector2f accelleration, double mass) {
+	public PhysicsComponent(Hitbox hitbox, Vector2d speed, Vector2d accelleration, double mass) {
 		this.hitbox = hitbox;
 		this.speed = speed;
 		this.accelleration = accelleration;
@@ -32,15 +32,15 @@ public class PhysicsComponent implements Serializable{
 		return mass;
 	}
 
-	public Vector2f getSpeed() {
+	public Vector2d getSpeed() {
 		return speed;
 	}
 
-	public Vector2f getAcceleration() {
+	public Vector2d getAcceleration() {
 		return accelleration;
 	}
 
-	public Vector2f getImpulse() {
+	public Vector2d getImpulse() {
 		return speed.multiply(mass);
 	}
 }

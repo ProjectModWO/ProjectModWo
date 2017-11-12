@@ -8,7 +8,7 @@ import game.entities.Entity;
 import game.entities.capabilities.modules.IModule;
 import game.entities.components.PhysicsComponent;
 import game.entities.components.TransformComponent;
-import math.Vector2f;
+import math.Vector2d;
 
 public class ModuleBase extends Entity implements IModule {
 
@@ -44,21 +44,21 @@ public class ModuleBase extends Entity implements IModule {
 	}
 	
 	@Override
-	public void applyForce(Vector2f force) {
+	public void applyForce(Vector2d force) {
 		parent.applyForce(force, getTransform().getPosition());
 	}
 	
 	@Override
-	public void applyForce(Vector2f force, Vector2f pos) {
+	public void applyForce(Vector2d force, Vector2d pos) {
 		parent.applyForce(force, pos);
 	}
 	
 	@Override
-	public Vector2f centerOfGravity() {
-		Vector2f v = getTransform().getPosition() * getPhyComp().getWeight();
+	public Vector2d centerOfGravity() {
+		Vector2d v = getTransform().getPosition() * getPhyComp().getWeight();
 		
 		for(IModule module : connectedModules) {
-			Vector2f relPos = module.centerOfGravity();
+			Vector2d relPos = module.centerOfGravity();
 			double branchMass = module.branchMass();
 			v = v + (relPos * branchMass);
 		}
@@ -97,17 +97,17 @@ public class ModuleBase extends Entity implements IModule {
 
 
 	@Override
-	public void move(Vector2f impulse) {
+	public void move(Vector2d impulse) {
 
 	}
 
 	@Override
-	public void move(Vector2f force, double timeInMillis) {
+	public void move(Vector2d force, double timeInMillis) {
 
 	}
 
 	@Override
-	public Vector2f getImpulse() {
+	public Vector2d getImpulse() {
 		return getPhyComp().getImpulse();
 	}
 
