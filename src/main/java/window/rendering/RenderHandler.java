@@ -1,6 +1,6 @@
 package window.rendering;
 
-import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL11.*;
 
 import java.util.ArrayList;
 
@@ -34,12 +34,16 @@ public class RenderHandler {
 
 		// set clear color
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		
+		// enable objects to be drawn according to depth value 
+		glEnable (GL_DEPTH_TEST); 
+			
 
 	}
 
-	public void addNew(float width, float height, Transform2f1f transform, String texturePath, long id) {
+	public void addNew(float width, float height, Transform2f1f transform, String texturePath, long id, float renderOrder) {
 
-		GraphicObjectTemplate t = new GraphicObjectTemplate(width, height, transform, texturePath, pr_matrix, id);
+		GraphicObjectTemplate t = new GraphicObjectTemplate(width, height, transform, texturePath, pr_matrix, id, renderOrder);
 
 		// queue t
 		addObjects.add(t);

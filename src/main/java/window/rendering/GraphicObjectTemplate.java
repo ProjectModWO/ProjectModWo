@@ -14,14 +14,16 @@ public class GraphicObjectTemplate {
 	private String texturePath;
 	private Matrix4f pr_matrix;
 	private long id;
+	private float renderOrder;
 	
-	public GraphicObjectTemplate(float width, float height, Transform2f1f transform, String texturePath, Matrix4f pr_matrix, long id) {
+	public GraphicObjectTemplate(float width, float height, Transform2f1f transform, String texturePath, Matrix4f pr_matrix, long id, float renderOrder) {
 		this.width = width;
 		this.height = height;
 		this.transform = transform;
 		this.texturePath = texturePath;
 		this.pr_matrix = pr_matrix;
-		this.id = id;			
+		this.id = id;
+		this.renderOrder = renderOrder;			
 	}
 	
 }

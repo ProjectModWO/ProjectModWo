@@ -3,19 +3,23 @@ package window.input;
 import lombok.Getter;
 import math.Vector2f;
 
+
 @Getter
-public class KeyWrapper {
+public class InputWrapper {
 
 	private final Key key;
 
 	private final Action action;
 	
 	private final Vector2f pos;
+	
+	private final long timeStamp;
 
-	public KeyWrapper(Key key, Action action, Vector2f pos) {
+	public InputWrapper(Key key, Action action, Vector2f pos, long timeStamp) {
 		this.key = key;
 		this.action = action;
 		this.pos = pos;
+		this.timeStamp = timeStamp;
 	}
 
 	public enum Key {

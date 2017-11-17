@@ -11,10 +11,11 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * <p>Basic Window class
  * 
- * A Window Class
+ * <p>Includes: 
  * 
- * Is created on its own thread
+ * <p>{@code InputHandler}, {@code RenderHandler} 
  * 
  * @author PCPCPC
  *
@@ -55,7 +56,6 @@ public class Window implements Runnable {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	@Override

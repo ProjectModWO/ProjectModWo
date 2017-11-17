@@ -1,8 +1,8 @@
 package window.input;
 
 import window.Window;
-import window.input.KeyWrapper.Action;
-import window.input.KeyWrapper.Key;
+import window.input.InputWrapper.Action;
+import window.input.InputWrapper.Key;
 
 import java.nio.DoubleBuffer;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -15,40 +15,50 @@ import org.lwjgl.glfw.GLFWMouseButtonCallback;
 import lombok.Getter;
 import math.Vector2f;
 
+/**
+ * 
+ * Provides a concurrent queue with input from window
+ * 
+ * <p>Is created automatically by {@code Window} objects
+ * 
+ * <p>Access queue using {@code InputHandler.getInputs()}
+ * 
+ * @author PCPCPC
+ *
+ */
 public class InputHandler {
 
 	private Window window;
 	@Getter
-	private ConcurrentLinkedQueue<KeyWrapper> inputs = new ConcurrentLinkedQueue<KeyWrapper>();
+	private ConcurrentLinkedQueue<InputWrapper> inputs = new ConcurrentLinkedQueue<InputWrapper>();
 
 	public Vector2f getMousePos() {
-		
+
 		DoubleBuffer x = BufferUtils.createDoubleBuffer(1);
 
 		DoubleBuffer y = BufferUtils.createDoubleBuffer(1);
 
 		glfwGetCursorPos(this.window.getID(), x, y);
-		
-		return new Vector2f((float)x.get(), (float)y.get());
-		
+
+		return new Vector2f((float) x.get(), (float) y.get());
+
 	}
-	
+
 	public InputHandler(Window window) {
 
 		this.window = window;
-
 		glfwSetKeyCallback(window.getID(), new KeyCallback(window, inputs));
 		glfwSetMouseButtonCallback(window.getID(), new MouseButtonCallback(window, inputs));
 
 	}
-	
+
 	protected class KeyCallback extends GLFWKeyCallback {
 
 		private Window window;
 
-		private ConcurrentLinkedQueue<KeyWrapper> inputs;
+		private ConcurrentLinkedQueue<InputWrapper> inputs;
 
-		public KeyCallback(Window window, ConcurrentLinkedQueue<KeyWrapper> inputs) {
+		public KeyCallback(Window window, ConcurrentLinkedQueue<InputWrapper> inputs) {
 			this.window = window;
 			this.inputs = inputs;
 		}
@@ -61,8 +71,8 @@ public class InputHandler {
 
 			glfwGetCursorPos(this.window.getID(), x, y);
 
-			inputs.add(new KeyWrapper(Key.fromInt(key), Action.fromInt(action),
-					new Vector2f((float) x.get(), (float) y.get())));
+			inputs.add(new InputWrapper(Key.fromInt(key), Action.fromInt(action),
+					new Vector2f((float) x.get(), (float) y.get()), System.currentTimeMillis()));
 
 		}
 
@@ -72,25 +82,26 @@ public class InputHandler {
 
 		private Window window;
 
-		private ConcurrentLinkedQueue<KeyWrapper> inputs;
-		
-		public MouseButtonCallback(Window window, ConcurrentLinkedQueue<KeyWrapper> inputs) {
+		private ConcurrentLinkedQueue<InputWrapper> inputs;
+
+		public MouseButtonCallback(Window window, ConcurrentLinkedQueue<InputWrapper> inputs) {
 			this.window = window;
 			this.inputs = inputs;
 		}
-		
+
 		@Override
 		public void invoke(long window, int button, int action, int mods) {
 			DoubleBuffer x = BufferUtils.createDoubleBuffer(1);
-			
+
 			DoubleBuffer y = BufferUtils.createDoubleBuffer(1);
-			
+
 			glfwGetCursorPos(this.window.getID(), x, y);
-			
-			inputs.add(new KeyWrapper(Key.fromInt(button), Action.fromInt(action), new Vector2f((float)x.get(), (float)y.get())));
-		
+
+			inputs.add(new InputWrapper(Key.fromInt(button), Action.fromInt(action),
+					new Vector2f((float) x.get(), (float) y.get()), System.currentTimeMillis()));
+
 		}
-		
+
 	}
 
 }
