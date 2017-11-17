@@ -11,6 +11,8 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * 
+ * 
  * <p>Basic Window class
  * 
  * <p>Includes: 
@@ -92,7 +94,7 @@ public class Window implements Runnable {
 		glfwMakeContextCurrent(handle);
 
 		// Enable v-sync
-		glfwSwapInterval(1);
+		//glfwSwapInterval(1);
 
 		glfwShowWindow(handle);
 
@@ -111,11 +113,13 @@ public class Window implements Runnable {
 			renderHandler.invalidate();
 			renderHandler.render();
 			
+			glFinish();
+			
 			inputHandler.update();
 			
 			try {
 				long timeLeft = iterationStart + MS_PER_FRAME - System.currentTimeMillis();
-				if (timeLeft > 0)
+				if (timeLeft > 0) 	
 				Thread.sleep(timeLeft);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
