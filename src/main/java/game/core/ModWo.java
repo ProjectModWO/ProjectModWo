@@ -8,7 +8,7 @@ public class ModWo {
 
 	public ModWo() throws InterruptedException {
 		// create a new window
-		Window window = new Window(1920, 1080, "ModWo");
+		Window window = new Window(1600, 900, "ModWo", false);
 
 		Transform2f1f t = new Transform2f1f();
 
@@ -24,7 +24,7 @@ public class ModWo {
 					(v.getX2() - window.getHeight() / 2) / -120));
 			if (window.inputHandler.getInputs().poll() != null)
 			{
-				window.close();
+				window.toggleFullscreen();
 			}
 		}
 	}

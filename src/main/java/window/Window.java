@@ -36,12 +36,15 @@ public class Window implements Runnable {
 	public RenderHandler renderHandler;
 
 	public InputHandler inputHandler;
-	
-	public Window(int width, int height, String title) {
+
+	private boolean isFullscreen;
+
+	public Window(int width, int height, String title, boolean createFullscreen) {
 
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		isFullscreen = createFullscreen;
 
 		thread = new Thread(this, title);
 		thread.start();
@@ -73,7 +76,7 @@ public class Window implements Runnable {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 		// create window and retrieve handle
-		handle = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
+		handle = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (handle == NULL) {
 			System.err.println("Failed to create glfw Window");
 			return;
@@ -93,6 +96,8 @@ public class Window implements Runnable {
 		inputHandler = new InputHandler(this);
 
 		active = true;
+
+		setFullscreen(isFullscreen);
 
 		while (active) {
 
@@ -122,11 +127,31 @@ public class Window implements Runnable {
 	public String getTitle() {
 		return title;
 	}
+
+	public void toggleFullscreen() {
+		setFullscreen(!isFullscreen);
+	}
 	
+	public void setFullscreen(boolean fullscreen) {
+		isFullscreen = fullscreen;
+		
+		long monitor = glfwGetPrimaryMonitor();
+		GLFWVidMode vidmode = glfwGetVideoMode(monitor);
+		if (fullscreen) {
+
+			glfwSetWindowMonitor(handle, monitor, 0, 0, vidmode.width(), vidmode.height(), vidmode.refreshRate());
+
+		} else {
+			glfwSetWindowMonitor(handle, NULL, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2, width,
+					height, vidmode.refreshRate());
+		}
+
+	}
+
 	public void close() {
 		glfwSetWindowShouldClose(handle, true);
 	}
-	
+
 	public void onKey() {
 
 	}
