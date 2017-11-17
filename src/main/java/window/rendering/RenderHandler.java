@@ -1,5 +1,6 @@
 package window.rendering;
 
+import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.opengl.GL11.*;
 
 import java.util.ArrayList;
@@ -73,9 +74,11 @@ public class RenderHandler {
 	}
 
 	public void render() {
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		for (GraphicObject g : gobjects) {
 			g.render();
 		}
+		glfwSwapBuffers(window.getID());	
 	}
 
 }

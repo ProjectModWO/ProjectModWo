@@ -34,13 +34,15 @@ public class Window implements Runnable {
 	@Getter
 	private boolean active = false;
 
+	private final long  MS_PER_FRAME;
+	
 	public RenderHandler renderHandler;
 
 	public InputHandler inputHandler;
 
 	private boolean isFullscreen;
 
-	public Window(int width, int height, String title, boolean createFullscreen) {
+	public Window(int width, int height, String title, boolean createFullscreen, long framesPerSecond) {
 
 		this.width = width;
 		this.height = height;
@@ -56,6 +58,7 @@ public class Window implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		MS_PER_FRAME = 60 / framesPerSecond;
 	}
 
 	@Override
@@ -76,12 +79,16 @@ public class Window implements Runnable {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 		// create window and retrieve handle
-		handle = glfwCreateWindow(width, height, title, NULL, NULL);
+		handle = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
 		if (handle == NULL) {
 			System.err.println("Failed to create glfw Window");
 			return;
 		}
-
+		
+		//change to windowed if not created fullscreen
+		if (!isFullscreen)
+			setFullscreen(isFullscreen);
+		
 		glfwMakeContextCurrent(handle);
 
 		// Enable v-sync
@@ -92,25 +99,28 @@ public class Window implements Runnable {
 		// create Render Handler
 		renderHandler = new RenderHandler(this);
 
-		// create InputHandler and link as a callback
+		// create InputHandler
 		inputHandler = new InputHandler(this);
-
+		
 		active = true;
 
-		setFullscreen(isFullscreen);
-
 		while (active) {
-
-			// clear buffer
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+			
+			long iterationStart = System.currentTimeMillis();
+			
 			renderHandler.invalidate();
 			renderHandler.render();
-
-			glfwSwapBuffers(handle);
-
-			glfwPollEvents();
-
+			
+			inputHandler.update();
+			
+			try {
+				long timeLeft = iterationStart + MS_PER_FRAME - System.currentTimeMillis();
+				if (timeLeft > 0)
+				Thread.sleep(timeLeft);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			active = !glfwWindowShouldClose(handle);
 		}
 
@@ -138,9 +148,7 @@ public class Window implements Runnable {
 		long monitor = glfwGetPrimaryMonitor();
 		GLFWVidMode vidmode = glfwGetVideoMode(monitor);
 		if (fullscreen) {
-
 			glfwSetWindowMonitor(handle, monitor, 0, 0, vidmode.width(), vidmode.height(), vidmode.refreshRate());
-
 		} else {
 			glfwSetWindowMonitor(handle, NULL, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2, width,
 					height, vidmode.refreshRate());

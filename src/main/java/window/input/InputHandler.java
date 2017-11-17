@@ -104,4 +104,10 @@ public class InputHandler {
 
 	}
 
+	public void update() {
+
+		glfwPollEvents();
+		
+	}
+
 }
