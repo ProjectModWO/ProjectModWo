@@ -1,6 +1,7 @@
 package game.core.client;
 
 import game.core.common.GameRegistry;
+import game.core.server.Server;
 import game.entities.Entity;
 import lombok.Getter;
 
@@ -17,10 +18,12 @@ public class Clientgame {
 
     //Registry related
     private GameRegistry registry;
+    private Server server;
 
     public Clientgame() {
 
-    
+        server = new Server();
+
     }
 
     public Entity[] getEntityRegistrySnapshot() {

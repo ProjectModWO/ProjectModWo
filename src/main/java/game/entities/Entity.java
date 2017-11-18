@@ -12,27 +12,27 @@ public abstract class Entity implements IMovable, Serializable, Registrable {
 
     @Getter
     private TransformComponent transform;
-    
+
     private PhysicsComponent physics;
 
     private int UID = 0;
 
     @Getter
     private double health;
-    
+
     public Entity(TransformComponent transform, PhysicsComponent physics) {
-    	
-		this.transform = transform;
-		
-		this.physics = physics;
+
+        this.transform = transform;
+
+        this.physics = physics;
     }
-    
+
     public void onCrash(IMovable hitter) {
 
         //Todo calculate impact force from the delta of the kinetic energy
 
-    	if(health <= 0D){
-    	    destroy();
+        if (health <= 0D) {
+            destroy();
         }
     }
 
@@ -45,13 +45,8 @@ public abstract class Entity implements IMovable, Serializable, Registrable {
 
     @Override
     public void setUID(int UID) {
-        if (UID != 0){
-            throw new RuntimeException(){
-                @Override
-                public String getMessage() {
-                    return "UID already set!";
-                }
-            };
+        if (UID != 0) {
+            throw new RuntimeException("UID Already set!");
         }
         this.UID = UID;
     }

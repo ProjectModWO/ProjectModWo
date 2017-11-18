@@ -1,11 +1,4 @@
-package network;/* 
- * Copyright (C) 2017 Vindalia - All Rights Reserved 
- * 
- * Unauthorized copying of this file, via any medium is strictly prohibited 
- * Proprietary and confidential 
- * 
- * Written by Vindalia <development@vindalia.net>, 2017 
- */
+package network;
 
 import java.io.*;
 import java.net.Socket;
@@ -19,12 +12,12 @@ public class ServerRunnable extends TimerTask {
         this.socket = socket;
     }
 
-    private void processObject(Object o){
+    private void processObject(Object o) {
         System.out.println(o);
 
     }
 
-    public void send(Serializable serializable){
+    public void send(Serializable serializable) {
         System.out.println("Server: Sending object");
 
         try {
@@ -35,9 +28,9 @@ public class ServerRunnable extends TimerTask {
         }
     }
 
-    private void startReceiver(){
+    private void startReceiver() {
 
-        while (true){
+        while (true) {
 
             try {
                 System.out.println("Server: Waiting for object");

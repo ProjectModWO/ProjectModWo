@@ -31,13 +31,12 @@ public class TcpServer {
         unifier = new ThreadUnifier();
 
         try {
-            server = new ServerSocket( port);
+            server = new ServerSocket(port);
 
             iHateThreads = new Timer(false);
 
             runnables = new ConcurrentLinkedQueue<>();
             runnables.clear();
-
 
 
             iHateThreads.schedule(new TimerTask() {
@@ -51,15 +50,14 @@ public class TcpServer {
         }
 
 
-
     }
 
 
-    private void readyAccept(){
+    private void readyAccept() {
 
         System.out.println("Ready for client");
 
-        while (true){
+        while (true) {
             try {
                 System.out.println("Waiting for client");
                 Socket socket = server.accept();
@@ -67,7 +65,7 @@ public class TcpServer {
                 ServerRunnable runnable = new ServerRunnable(socket);
                 runnables.add(runnable);
 
-                new Timer(false).schedule( runnable,10);
+                new Timer(false).schedule(runnable, 10);
                 System.out.println("Client done");
 
             } catch (IOException e) {
@@ -77,9 +75,9 @@ public class TcpServer {
 
     }
 
-    public void sendToAll(Serializable serializable){
+    public void sendToAll(Serializable serializable) {
         System.out.println(runnables.toArray().length);
-        for (ServerRunnable r: runnables) {
+        for (ServerRunnable r : runnables) {
             r.send(serializable);
         }
     }

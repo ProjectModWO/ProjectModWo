@@ -9,7 +9,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class GameRegistry implements Serializable{
+public class GameRegistry implements Serializable {
 
     private volatile Map<Integer, Entity> entityRegistry;
     private int counter;
@@ -19,28 +19,28 @@ public class GameRegistry implements Serializable{
         entityRegistry = new ConcurrentHashMap<>();
     }
 
-    public void register(Registrable registrable){
+    public void register(Registrable registrable) {
         int i = getCounter();
 
-        if (registrable instanceof Entity){
+        if (registrable instanceof Entity) {
             Entity entity = (Entity) registrable;
             entity.setUID(i);
-            entityRegistry.put(i,entity);
+            entityRegistry.put(i, entity);
         }
 
     }
 
-    private int getCounter(){
-        while(entityRegistry.containsKey(counter) || counter == 0){
+    private int getCounter() {
+        while (entityRegistry.containsKey(counter) || counter == 0) {
             counter++;
         }
         return counter++;
 
     }
 
-    public void remove(Registrable registrable){
+    public void remove(Registrable registrable) {
 
-        if (registrable instanceof Entity){
+        if (registrable instanceof Entity) {
             Entity entity = (Entity) registrable;
             int UID = entity.getUID();
             entityRegistry.remove(UID);
