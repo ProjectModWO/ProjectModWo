@@ -26,7 +26,7 @@ public class GraphicObject {
 	
 	public GraphicObject(GraphicObjectTemplate template) {
 		this(new VertexArray(template.getWidth(), template.getHeight()),
-				new Shader("shaders/shader.vert", "shaders/shader.frag"), new Texture(template.getTexturePath()),
+				new Shader("shaders/shader.vert", "shaders/shader.frag"), Texture.get(template.getTexturePath()),
 				template.getTransform(), template.getPr_matrix(), template.getId(), template.getRenderOrder());
 	}
 

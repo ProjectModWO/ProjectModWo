@@ -38,21 +38,30 @@ public class InputWrapper {
 		MOUSE_BUTTON_RIGHT,		
 		MOUSE_BUTTON_MIDDLE,
 		
+		KEYBOARD_BUTTON_ESCAPE,
+		
 		UNKNOWN;
 		
 		public static Key fromInt(int key) {
 			switch(key) {
-			case 0: return MOUSE_BUTTON_LEFT;
-			case 1: return MOUSE_BUTTON_RIGHT;
-			case 2: return MOUSE_BUTTON_MIDDLE;
-				
+			
+				case -1: return UNKNOWN;
+			
+				case 0: return MOUSE_BUTTON_LEFT;
+				case 1: return MOUSE_BUTTON_RIGHT;
+				case 2: return MOUSE_BUTTON_MIDDLE;
+			
+				case 256: return KEYBOARD_BUTTON_ESCAPE;
+			
 			}
+			
 			return UNKNOWN;
 		}
 
 	}
 
 	public enum Action {
+		
 		DOWN,
 		UP,
 		UNKNOWN;
@@ -60,8 +69,12 @@ public class InputWrapper {
 		public static Action fromInt(int action) {
 			
 			switch(action) {
+				
+				case -1: return UNKNOWN;
+			
 				case 0: return UP;
 				case 1: return DOWN;
+				
 			}
 			
 			return UNKNOWN;

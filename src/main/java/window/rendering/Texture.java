@@ -3,6 +3,7 @@ package window.rendering;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 import lombok.Getter;
 import window.utils.BufferUtils;
@@ -18,18 +19,21 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class Texture {
 	
+	private static HashMap<String, Texture> textures = new HashMap<String, Texture>();
+	
 	private @Getter int  width, height;
 	
-	private int texture;
+	private int handle;
 
 	public Texture() {
 	}
 
 	public Texture(String path) {
-		texture = loadFromFile(path);
+		handle = loadFromFile(path);
 	}
 
 	public int loadFromFile(String path) {
+		
 		int[] pixels = null;
 		try {
 			BufferedImage image = ImageIO.read(new FileInputStream(path));
@@ -62,14 +66,26 @@ public class Texture {
 		return tex;
 	}
 	
+	public static Texture get(String path) {
+		
+		if (textures.containsKey(path)) {
+			return textures.get(path);
+		} else {
+			Texture texture = new Texture(path);
+			textures.put(path, texture);
+			return texture;
+		}
+		
+	}
+	
 	public int getID() {
 		
-		return texture;
+		return handle;
 	}
 	
 	public void bind() {
 		
-		glBindTexture(GL_TEXTURE_2D, texture);
+		glBindTexture(GL_TEXTURE_2D, handle);
 	}
 	
 	public void unbind() {

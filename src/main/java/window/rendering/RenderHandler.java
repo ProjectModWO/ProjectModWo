@@ -28,8 +28,13 @@ public class RenderHandler {
 
 		this.window = window;
 
-		pr_matrix = Matrix4f.orthographic(-window.getWidth() / 240, window.getWidth() / 240, -window.getHeight() / 240,
-				window.getHeight() / 240, -1.0f, 1.0f);
+		
+		
+		pr_matrix = Matrix4f.orthographic(
+				-window.getWidth() / 2,  window.getWidth() / 2,
+				-window.getHeight() / 2, window.getHeight() / 2, 
+				-1.0f, 					   1.0f);
+		
 		// activate OpenGL
 		GL.createCapabilities();
 
