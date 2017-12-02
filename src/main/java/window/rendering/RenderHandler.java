@@ -2,7 +2,7 @@ package window.rendering;
 
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.opengl.GL11.*;
-
+import static org.lwjgl.opengl.GL30.*;
 import java.util.ArrayList;
 
 import org.lwjgl.opengl.GL;
@@ -43,6 +43,8 @@ public class RenderHandler {
 		
 		// enable objects to be drawn according to depth value 
 		glEnable (GL_DEPTH_TEST); 
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			
 
 	}

@@ -15,7 +15,7 @@ public class ModWo {
 
 		// add some graphics
 		window.renderHandler.addNew(1920.0f, 1080.0f, new Transform2f1f(new Vector2f(0,0), 0), "res/bg.png", 0, -0.5f);
-		window.renderHandler.addNew(17, 17f, t, "res/weirdstar.png", 1, 0.0f);
+		window.renderHandler.addNew(256, 256f, t, "res/alpha_test.png", 1, 0.0f);
 
 		while (window.isActive()) {
 			Thread.sleep(1);

@@ -93,9 +93,6 @@ public class Window implements Runnable {
 		
 		glfwMakeContextCurrent(handle);
 
-		// Enable v-sync
-		//glfwSwapInterval(1);
-
 		glfwShowWindow(handle);
 
 		// create Render Handler
