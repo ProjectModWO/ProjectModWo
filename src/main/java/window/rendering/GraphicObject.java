@@ -10,11 +10,11 @@ import math.Vector3f;
 @Setter
 public class GraphicObject {
 	
-	private VertexArray vertexArray;
+	protected VertexArray vertexArray;
 
-	private Shader shader;
+	protected Shader shader;
 
-	private Texture texture;
+	protected Texture texture;
 
 	private Transform2f1f transform;
 

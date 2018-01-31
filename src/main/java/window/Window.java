@@ -13,11 +13,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * 
  * 
- * <p>Basic Window class
+ * <p>
+ * Basic Window class
  * 
- * <p>Includes: 
+ * <p>
+ * Includes:
  * 
- * <p>{@code InputHandler}, {@code RenderHandler} 
+ * <p>
+ * {@code InputHandler}, {@code RenderHandler}
  * 
  * @author PCPCPC
  *
@@ -36,8 +39,8 @@ public class Window implements Runnable {
 	@Getter
 	private boolean active = false;
 
-	private final long  MS_PER_FRAME;
-	
+	private final long MS_PER_FRAME;
+
 	public RenderHandler renderHandler;
 
 	public InputHandler inputHandler;
@@ -86,11 +89,11 @@ public class Window implements Runnable {
 			System.err.println("Failed to create glfw Window");
 			return;
 		}
-		
-		//change to windowed if not created fullscreen
+
+		// change to windowed if not created fullscreen
 		if (!isFullscreen)
 			setFullscreen(isFullscreen);
-		
+
 		glfwMakeContextCurrent(handle);
 
 		glfwShowWindow(handle);
@@ -100,28 +103,28 @@ public class Window implements Runnable {
 
 		// create InputHandler
 		inputHandler = new InputHandler(this);
-		
+
 		active = true;
 
 		while (active) {
-			
+
 			long iterationStart = System.currentTimeMillis();
-			
+
 			renderHandler.invalidate();
 			renderHandler.render();
-			
+
 			glFinish();
-			
+
 			inputHandler.update();
-			
+
 			try {
 				long timeLeft = iterationStart + MS_PER_FRAME - System.currentTimeMillis();
-				if (timeLeft > 0) 	
-				Thread.sleep(timeLeft);
+				if (timeLeft > 0)
+					Thread.sleep(timeLeft);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+
 			active = !glfwWindowShouldClose(handle);
 		}
 
@@ -139,13 +142,20 @@ public class Window implements Runnable {
 		return title;
 	}
 
+	public void setCursorVisibility(Boolean visible) {
+		if (visible)
+			glfwSetInputMode(handle, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		else
+			glfwSetInputMode(handle, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	}
+
 	public void toggleFullscreen() {
 		setFullscreen(!isFullscreen);
 	}
-	
+
 	public void setFullscreen(boolean fullscreen) {
 		isFullscreen = fullscreen;
-		
+
 		long monitor = glfwGetPrimaryMonitor();
 		GLFWVidMode vidmode = glfwGetVideoMode(monitor);
 		if (fullscreen) {

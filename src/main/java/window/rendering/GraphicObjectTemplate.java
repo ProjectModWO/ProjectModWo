@@ -26,4 +26,6 @@ public class GraphicObjectTemplate {
 		this.renderOrder = renderOrder;			
 	}
 	
+	
+	
 }
